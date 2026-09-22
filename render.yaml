@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: hos-trip-planner-backend
+    runtime: python
+    buildCommand: "cd backend && pip install -r requirements.txt && python manage.py collectstatic --no-input"
+    startCommand: "cd backend && gunicorn config.wsgi:application --bind 0.0.0.0:$PORT"
+    envVars:
+      - key: DJANGO_DEBUG
+        value: "false"
+      - key: DJANGO_ALLOWED_HOSTS
+        value: ".onrender.com"
+      - key: MONGO_DATABASE
+        value: "hos_trip_planner"
+      - key: MONGO_URI
+        sync: false
+      - key: DJANGO_SECRET_KEY
+        generateValue: true
+      - key: CORS_ALLOWED_ORIGINS
+        value: "https://hos-trip-planner.vercel.app,http://localhost:5173"

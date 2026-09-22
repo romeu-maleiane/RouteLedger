@@ -1,0 +1,8 @@
+Django>=5.1,<5.3
+django-cors-headers>=4.6,<5
+pymongo>=4.10,<5
+requests>=2.32,<3
+bcrypt>=4.2,<5
+PyJWT>=2.10,<3
+python-dotenv>=1.0,<2
+gunicorn>=23.0,<24
